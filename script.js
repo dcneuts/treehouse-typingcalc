@@ -6,6 +6,8 @@ const theTimer = document.querySelector(".timer");
 
 // Change variable to array to capture precise time in HH:MM:SS:MS
 var timer = [0,0,0,0];
+var interval;
+var timerRunning = false;
 
 // Add leading zero to numbers 9 or below (purely for aesthetics):
 // Using helper function for string to parse number in order to place 0
