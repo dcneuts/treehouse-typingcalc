@@ -56,7 +56,9 @@ function spellCheck() {
 // Start the timer:
 function start() {
 	let textEnteredLength = testArea.value.length;
-	if (textEnteredLength === 0) {
+	if (textEnteredLength === 0 && !timerRunning) {
+		// Changed logic on line 59 to compensate for timer running all over again.
+		timerRunning = true;
 		// Added interval to call it in the script to stop the clock when conditions are met
 		interval = setInterval(runTimer, 10);
 	}
