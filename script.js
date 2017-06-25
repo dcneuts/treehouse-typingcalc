@@ -8,11 +8,20 @@ const theTimer = document.querySelector(".timer");
 var timer = [0,0,0,0];
 
 // Add leading zero to numbers 9 or below (purely for aesthetics):
+// Using helper function for string to parse number in order to place 0
+function leadingZero(time) {
+	if (time <= 9) {
+		time = "0" + time;
+	}
+	// Returning time to be used elsewhere in the script
+	return time;
+}
 
 
 // Run a standard minute/second/hundredths timer:
 function runTimer() {
-	let currentTime = timer[0] + ":" + timer[1] + ":" + timer[2];
+	// Helper function above
+	let currentTime = leadingZero(timer[0]) + ":" + leadingZero(timer[1]) + ":" + leadingZero(timer[2]);
 	theTimer.innerHTML = currentTime;
 	// Pushing changes to MS (array position 3, as array starts from 0)
 	timer[3]++;
