@@ -68,7 +68,15 @@ function start() {
 
 // Reset everything:
 function reset () {
-	console.log("The reset button was pressed.");
+	clearInterval(interval);
+	// We don't want to start a new instance by default behavior
+	interval = null;
+	timer = [0,0,0,0];
+	timerRunning = false;
+
+	testArea.value = "";
+	theTimer.innerHTML = "00:00:00";
+	testWrapper.style.borderColor = "grey";
 }
 
 // Event listeners for keyboard input and the reset button:
