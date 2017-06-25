@@ -34,6 +34,20 @@ function runTimer() {
 // Match the text entered with the provided text on the page:
 function spellCheck() {
 	let textEntered = testArea.value;
+	let originTextMatch = originText.substring(0,textEntered.length);
+
+	if(textEntered == originText) {
+		// Used interval below on line 58 to clear the interval and stop the clock once the conditions are met to
+		// turn the test area to blue.
+		clearInterval(interval);
+		testWrapper.style.borderColor = "#429890";
+	} else {
+		if (textEntered == originTextMatch) {
+			testWrapper.style.borderColor = "#65CCf3";
+		} else {
+			testWrapper.style.borderColor = "#E95D0F";
+		}
+	}
 	console.log(textEntered);
 }
 
@@ -41,7 +55,8 @@ function spellCheck() {
 function start() {
 	let textEnteredLength = testArea.value.length;
 	if (textEnteredLength === 0) {
-		setInterval(runTimer, 10);
+		// Added interval to call it in the script to stop the clock when conditions are met
+		interval = setInterval(runTimer, 10);
 	}
 	console.log(textEnteredLength);
 }
