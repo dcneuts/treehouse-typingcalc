@@ -15,9 +15,13 @@ const theTimer = document.querySelector(".timer");
 
 
 // Start the timer:
-
+function start() {
+	let textEnteredLength = testArea.value.length;
+	console.log(textEnteredLength);
+}
 
 // Reset everything:
 
 
 // Event listeners for keyboard input and the reset button:
+testArea.addEventListener("keypress", start, false);
